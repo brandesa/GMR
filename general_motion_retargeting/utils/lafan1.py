@@ -35,6 +35,8 @@ def load_bvh_file(bvh_file, format="lafan1"):
         elif format == "nokov":
             result["LeftFootMod"] = [result["LeftFoot"][0], result["LeftToeBase"][1]]
             result["RightFootMod"] = [result["RightFoot"][0], result["RightToeBase"][1]]
+        elif format == "roko":
+            pass  # No modifications needed
         else:
             raise ValueError(f"Invalid format: {format}")
             
