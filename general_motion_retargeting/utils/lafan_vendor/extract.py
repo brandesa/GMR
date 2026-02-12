@@ -40,7 +40,7 @@ class Anim(object):
         self.bones = bones
 
 
-def read_bvh(filename, start=None, end=None, order=None):
+def read_bvh(filename, seq_cfg, start=None, end=None, order=None):
     """
     Reads a BVH file and extracts animation information.
 
@@ -160,6 +160,7 @@ def read_bvh(filename, start=None, end=None, order=None):
 
     f.close()
 
+    rotations[:, 0, 0] -= rotations[0, 0, 0]
     rotations = utils.euler_to_quat(np.radians(rotations), order=order)
     rotations = utils.remove_quat_discontinuities(rotations)
 

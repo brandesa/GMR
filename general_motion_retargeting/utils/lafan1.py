@@ -4,8 +4,7 @@ from scipy.spatial.transform import Rotation as R
 import general_motion_retargeting.utils.lafan_vendor.utils as utils
 from general_motion_retargeting.utils.lafan_vendor.extract import read_bvh
 
-
-def load_bvh_file(bvh_file, format="lafan1"):
+def load_bvh_file(bvhfile, seq_cfg, format="lafan1"):
     """
     Must return a dictionary with the following structure:
     {
@@ -14,7 +13,7 @@ def load_bvh_file(bvh_file, format="lafan1"):
         ...
     }
     """
-    data = read_bvh(bvh_file)
+    data = read_bvh(bvhfile, seq_cfg)
     global_data = utils.quat_fk(data.quats, data.pos, data.parents)
 
     rotation_matrix = np.array([[1, 0, 0], [0, 0, -1], [0, 1, 0]])
@@ -46,6 +45,6 @@ def load_bvh_file(bvh_file, format="lafan1"):
     # human_height = human_height + 0.2  # cm to m
     human_height = 1.75  # cm to m
 
-    return frames, human_height
+    return data, frames, human_height
 
 
