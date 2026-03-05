@@ -1,9 +1,9 @@
 from rich import print
 
-try:
-    import xrobotoolkit_sdk as xrt
-except:
-    print("[bold red]xrobotoolkit_sdk not found, skip for now. If you do not use XRobotStreamer, it's fine.[/bold red]")
+# try:
+#     import xrobotoolkit_sdk as xrt
+# except:
+#     print("[bold red]xrobotoolkit_sdk not found, skip for now. If you do not use XRobotStreamer, it's fine.[/bold red]")
 import time
 import numpy as np
 from .rot_utils import quat_mul_np
